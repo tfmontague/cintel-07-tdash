@@ -7,10 +7,10 @@ import palmerpenguins
 
 df = palmerpenguins.load_penguins()
 
-ui.page_opts(title="Penguins dashboard", fillable=True)
+ui.page_opts(title="Tfmontague's Module 7 Penguin Dashboard", fillable=True)
 
 
-with ui.sidebar(title="Filter controls"):
+with ui.sidebar(title="Dashboard Filter Options"):
     ui.input_slider("mass", "Mass", 2000, 6000, 6000)
     ui.input_checkbox_group(
         "species",
@@ -19,7 +19,7 @@ with ui.sidebar(title="Filter controls"):
         selected=["Adelie", "Gentoo", "Chinstrap"],
     )
     ui.hr()
-    ui.h6("Links")
+    ui.h6("Resource Links")
     ui.a(
         "GitHub Source",
         href="https://github.com/denisecase/cintel-07-tdash",
