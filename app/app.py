@@ -1,3 +1,6 @@
+#-----------------------------------------------------------------------------
+# imports (at the top)
+#-----------------------------------------------------------------------------
 import seaborn as sns
 from faicons import icon_svg
 
@@ -7,9 +10,15 @@ import palmerpenguins
 
 df = palmerpenguins.load_penguins()
 
+#-----------------------------------------------------------------------------
+# Define the overall page options
+#-----------------------------------------------------------------------------
+# Name the page
 ui.page_opts(title="Tfmontague's Module 7 Penguin Dashboard", fillable=True)
 
-
+#-----------------------------------------------------------------------------
+# Define the sidebar
+#-----------------------------------------------------------------------------
 with ui.sidebar(title="Dashboard Filter Options"):
     ui.input_slider("mass", "Mass", 2000, 6000, 6000)
     ui.input_checkbox_group(
@@ -47,7 +56,9 @@ with ui.sidebar(title="Dashboard Filter Options"):
         target="_blank",
     )
 
-
+#-----------------------------------------------------------------------------
+# The main section with ui cards, value boxes, and space for grids and charts
+#-----------------------------------------------------------------------------
 with ui.layout_column_wrap(fill=False):
     with ui.value_box(showcase=icon_svg("earlybirds")):
         "Number of penguins"
@@ -101,6 +112,9 @@ with ui.layout_columns():
 
 #ui.include_css(app_dir / "styles.css")
 
+#-----------------------------------------------------------------------------
+# define a reactive calc to filter the palmer penguins dataset
+#-----------------------------------------------------------------------------
 
 @reactive.calc
 def filtered_df():
